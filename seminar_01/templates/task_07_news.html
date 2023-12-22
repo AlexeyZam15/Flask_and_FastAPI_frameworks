@@ -1,0 +1,15 @@
+{% extends 'new_base.html' %}
+{% block content %}
+<div class="row">
+    <h1 class="col-12 text-monospace text-center">Список
+        новостей</h1>
+    {% for new in news %}
+    <div class="col-12 col-md-6 col-lg-4">
+        <h2>{{ new.title }}</h2>
+        <p>{{ new.description }}</p>
+        <a href="/news/{{ new.new_id }}">Читать</a>
+        <p>Дата:{{ new.date }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
