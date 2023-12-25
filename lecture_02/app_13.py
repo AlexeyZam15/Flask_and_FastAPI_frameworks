@@ -1,7 +1,7 @@
 from flask import Flask, flash, redirect, render_template, request, url_for
 
 app = Flask(__name__)
-app.secret_key = b'e05903d776fac90e3776e228a9482733d06b736e7c3f75f82fbbb04a93c15baa'
+app.secret_key = b'key'
 """
 Генерация надёжного ключа (в консоли)
 >>> import secrets

@@ -2,7 +2,12 @@ from flask import Flask, request, render_template, session, redirect, url_for
 
 app = Flask(__name__)
 
-app.secret_key = '5f214cacbd30c2ae4784b520f17912ae0d5d8c16ae98128e3f549546221265e4'
+app.secret_key = 'key'
+"""
+Генерация надёжного ключа (в консоли)
+>>> import secrets
+>>> secrets.token_hex()
+"""
 
 
 @app.route('/')
