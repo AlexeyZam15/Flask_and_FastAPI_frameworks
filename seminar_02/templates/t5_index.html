@@ -1,0 +1,29 @@
+{% extends 't5_base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<form class="my-form" action="{{ url_for('index') }}" method="post">
+    {% with messages = get_flashed_messages(with_categories=true)
+    %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <label for="n1">Введите первое число</label><input type="number" name="number1" id="n1"/>
+    <label for="n2">Введите второе число</label><input type="number" name="number2" id="n2"/>
+    <label for="operations_l">Выберите операцию</label>
+    <input list="operations" name="operation" id="operations_l">
+    <datalist id="operations">
+        <option value="сложение">
+        <option value="вычитание">
+        <option value="умножение">
+        <option value="деление">
+    </datalist>
+    <input type="submit" value="Вычислить">
+</form>
+{% endblock %}

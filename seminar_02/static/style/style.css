@@ -1,0 +1,7 @@
+.nav-pills {
+align-items: baseline;
+gap: 5rem;
+}
+
+.my-form {
+display: flex; flex-direction: column; width: 20%;}
