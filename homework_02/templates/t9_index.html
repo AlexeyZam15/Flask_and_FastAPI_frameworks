@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<form class="my-form" action="{{ url_for('index') }}" method="post">
+    <label for="in1">Введите имя:</label><input type="text" name="name" id="in1"/>
+    <label for="in2">Введите электронную почту:</label><input type="email" name="email" id="in2"/>
+    <input type="submit" value="Отправить">
+</form>
+{% endblock %}
