@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<form class="my-form" method="post">
+    {% if name %}
+    <p>Добро пожаловать, {{ name }}</p>
+    {% else %}
+    <label for="in1">Введите имя:</label><input type="text" name="name" id="in1"/>
+    <label for="in2">Введите электронную почту:</label><input type="email" name="email" id="in2"/>
+    <input type="submit" value="Отправить">
+    {% endif %}
+</form>
+{% endblock %}
