@@ -21,17 +21,20 @@ app.secret_key = b'key'
 >>> secrets.token_hex()
 """
 
-menu = {'Главная': '/main/',
-        'Войти': '/'}
+menu = {'Войти': '/'}
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     name = request.cookies.get('username')
     email = request.cookies.get('email')
+
     if name and email:
-        flash(f'Приветствуем на сайте, {name}', 'success')
-        return redirect(url_for('main'))
+        if 'Войти' in menu:
+            menu.pop('Войти')
+        if 'Выйти' not in menu:
+            menu['Выйти'] = url_for('logout')
+        return render_template('t9_index.html', title="Главная", menu=menu.items(), name=name)
 
     if 'Войти' not in menu:
         menu['Войти'] = url_for('index')
@@ -45,26 +48,13 @@ def index():
         if not email:
             flash('Введите email', 'danger')
             return redirect(url_for('index'))
-        response = make_response(redirect(url_for('main')))
+        response = make_response(redirect(url_for('index')))
         response.set_cookie('username', name)
         response.set_cookie('email', email)
+        flash(f'Вы вошли в систему', 'success')
         return response
 
-    return render_template('t9_index.html', title="Авторизация", menu=menu.items())
-
-
-@app.route('/main/')
-def main():
-    name = request.cookies.get('username')
-    email = request.cookies.get('email')
-    if not name or not email:
-        flash('Вы не авторизованы', 'danger')
-        return redirect(url_for('index'))
-    if 'Войти' in menu:
-        menu.pop('Войти')
-    if 'Выйти' not in menu:
-        menu['Выйти'] = url_for('logout')
-    return render_template('t9_main.html', title="Главная", menu=menu.items(), name=name)
+    return render_template('t9_index.html', title="Авторизация", menu=menu.items(), name=name)
 
 
 @app.route('/logout/')
