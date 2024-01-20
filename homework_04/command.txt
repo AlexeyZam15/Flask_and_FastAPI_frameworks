@@ -1,0 +1,1 @@
+python task_09.py https://avatanplus.com/files/resources/original/579091ceb27a91560cb98f8b.jpg https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg https://mykaleidoscope.ru/x/uploads/posts/2022-10/1666206241_12-mykaleidoscope-ru-p-kartinka-na-zastavku-oboi-12.jpg
