@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <h1 class="col-12 text-monospace text-center">Список пользователей</h1>
+    {% for user in users %}
+    <div class="col-12 col-md-6 col-lg-4">
+        <p>Id: {{ user.id }}</p>
+        <p>Name: {{ user.name }}</p>
+        <p>Email: {{ user.email }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

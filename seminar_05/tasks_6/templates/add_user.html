@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<h1>{{ title }}</h1>
+<p>{{ text }}</p>
+<form class="my-form" action="{{ url_for('add_user_post') }}" method="post">
+    <label for="in1">Имя</label><input type="text" name="name" id="in1"/>
+    <label for="in2">Email</label><input type="email" name="email" id="in2"/>
+    <label for="in3">Пароль</label><input type="password" name="password" id="in3"/>
+    <input type="submit" value="Отправить">
+</form>
+{% endblock %}
