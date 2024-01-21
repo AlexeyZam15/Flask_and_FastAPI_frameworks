@@ -1,0 +1,44 @@
+Добавление задачи:
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/tasks' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "title": "Title",
+  "description": "Description"
+}'
+
+Неверный заголовок:
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/tasks' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi blanditiis deserunt dicta doloribus eligendi est iste laudantium nobis nulla quam qui quo reiciendis repellat repellendus reprehenderit sit, vel. Aliquam, cumque delectus facere in nulla officiis totam! Amet consequuntur eum modi natus porro similique sint tempore vero. Cumque eveniet molestias reiciendis ut!",
+  "description": "Description"
+}'
+
+Неверное описание:
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/tasks' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "title": "Title",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse maiores perspiciatis quaerat? Ab accusamus animi aperiam asperiores culpa debitis dignissimos dolorem doloremque earum, error excepturi facere fuga id illo impedit laborum magni minima modi molestiae nobis obcaecati odit pariatur possimus praesentium quaerat qui quod repellendus reprehenderit rerum sequi sunt tempore unde voluptas? Aliquid amet aperiam asperiores aut, cum dolorem ducimus eligendi fugiat ipsam iste itaque iure, magni minima necessitatibus nemo, neque nesciunt obcaecati odio omnis possimus recusandae rem repellat repellendus sint tempora? Asperiores at culpa et harum in minus neque nesciunt perspiciatis sint voluptates! Cumque esse ipsam laudantium mollitia non optio?"
+}'
+
+Обновление задачи:
+
+curl -X 'PUT' \
+  'http://127.0.0.1:8000/tasks/0?status=true' \
+  -H 'accept: application/json'
+
+Удаление задачи:
+
+curl -X 'DELETE' \
+  'http://127.0.0.1:8000/tasks/0' \
+  -H 'accept: application/json'
