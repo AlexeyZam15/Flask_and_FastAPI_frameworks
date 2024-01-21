@@ -1,0 +1,67 @@
+Новый пользователь:
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/users/' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "name",
+  "email": "email@mail.ru",
+  "password": "password"
+}'
+
+Неверный email:
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/users/' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "name",
+  "email": "email",
+  "password": "password"
+}'
+
+Неверный пароль:
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/users/' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "name",
+  "email": "email@.ru",
+  "password": "passw"
+}'
+
+Обновление пользователя:
+
+curl -X 'PUT' \
+  'http://127.0.0.1:8000/users/1' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": 2,
+  "name": "name",
+  "email": "email@mail.ru",
+  "password": "password"
+}'
+
+Пользователь не найден:
+
+curl -X 'PUT' \
+  'http://127.0.0.1:8000/users/999' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": 2,
+  "name": "name",
+  "email": "email@mail.ru",
+  "password": "password"
+}'
+
+Удаление пользователя:
+
+curl -X 'DELETE' \
+  'http://127.0.0.1:8000/users/1' \
+  -H 'accept: application/json'
